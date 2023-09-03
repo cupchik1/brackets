@@ -1,10 +1,11 @@
 module.exports = function check(str, bracketsConfig) {
-  openBracketIndex = 0;
-  closeBracketIndex = 0;
-  result = false;
-  openBrackets = [];
-  closeBrackets = [];
-  buffer = [];
+
+  let openBracketIndex = 0;
+  let closeBracketIndex = 0;
+  let result = false;
+  let openBrackets = [];
+  let closeBrackets = [];
+  let buffer = [];
 
   for(let i = 0; i < bracketsConfig.length; i++) {
       openBrackets.push(bracketsConfig[i][0]);
@@ -15,7 +16,6 @@ module.exports = function check(str, bracketsConfig) {
       openBracketIndex = openBrackets.indexOf(str[i]);
       if (openBracketIndex !== -1) {
         buffer.push(openBracketIndex);
-        continue;
       }
       closeBracketIndex = closeBrackets.indexOf(str[i]);
       if (closeBracketIndex !== -1) {
@@ -28,7 +28,5 @@ module.exports = function check(str, bracketsConfig) {
     if (buffer.length !== 0) {
       return result;
     }
-    
-    result = true;
-    return result;
+    return result = true;
 }
